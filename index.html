@@ -1,0 +1,65 @@
+<!doctype html>
+<!--
+  index.html — the page skeleton.
+  The screens themselves are drawn by app.js inside <main id="app">.
+  All file paths are RELATIVE (no leading "/"), so the site works both
+  when opened from your computer and at https://USERNAME.github.io/mathmentor-ai/
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- Makes the layout fit phone screens instead of showing a zoomed-out desktop page -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MathMentor — Your Step-by-Step Math Learning Companion</title>
+  <meta name="description" content="A free, mobile-friendly math tutor for Grade 11 students with progressive hints, answer checking, and worked solutions.">
+  <meta name="theme-color" content="#0f1b4c">
+  <!-- Tiny icon for the browser tab, drawn inline so no image file is needed -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%235b4cf0'/%3E%3Ctext x='32' y='45' font-size='36' text-anchor='middle' font-family='Georgia,serif' font-style='italic' fill='white'%3E%CF%80%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Lets keyboard users jump past the header -->
+  <a class="skip-link" href="#/">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#/" aria-label="MathMentor home">
+        <span class="brand-mark" aria-hidden="true">π</span>
+        <span class="brand-name">Math<span>Mentor</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="#/topics">Topics</a>
+        <a href="#/progress" class="progress-chip">
+          <span aria-hidden="true">★</span>
+          <span id="progress-chip-count">0</span>
+          <span class="chip-text">solved</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- app.js draws every screen inside this element -->
+  <main id="app" tabindex="-1">
+    <noscript>
+      <div class="container page"><div class="card">
+        <h1>Please turn on JavaScript</h1>
+        <p>MathMentor needs JavaScript to show problems and check answers.</p>
+      </div></div>
+    </noscript>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>MathMentor</strong> uses a curated problem bank and built-in tutoring rules — it is not a live AI chatbot.</p>
+      <p>No accounts · No personal data · No ads or tracking. Topic coverage has not yet been formally verified against the DepEd curriculum guide.</p>
+    </div>
+  </footer>
+
+  <!-- Order matters: data and checker first, then the app that uses them -->
+  <script src="problems.js"></script>
+  <script src="lessons.js"></script>
+  <script src="checker.js"></script>
+  <script src="audio-lesson.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
